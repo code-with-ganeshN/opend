@@ -57,9 +57,11 @@ function Item(props) {
         } else {
           setButton(<Button handelClick={handleSell} text={"Sell"} />);
         };
-    } else if (props.role == "discover") {
+    } 
+    else if (props.role == "discover") {
+      //setButton(<Button handelClick={handleBuy} text={"Buy"} />);
         const originalOwner=await opend.getOriginalOwner(props.id);
-        if(originalOwner.toText() != CURRENT_USER_ID.toText()){
+        if(originalOwner.toText() === CURRENT_USER_ID.toText()){
           setButton(<Button handelClick={handleBuy} text={"Buy"} />); 
         }
 
